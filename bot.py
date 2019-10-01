@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from PIL import Image
 import pytesseract
 import pandas as pd
-
+import sys
 
 class Bot:
     def __init__(self, number):
@@ -36,7 +36,10 @@ class Bot:
         text.append(image_to_text)
         print(text)    
 
-q = input("Enter vehicle number: ")
+if sys.argv[1] != "":
+    q = sys.argv[1]
+else:
+    q = input("Enter vehicle number: ")
 quantin = Bot(q)
 quantin.login()
 key = Keys()
